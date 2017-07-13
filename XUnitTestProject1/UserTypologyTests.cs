@@ -1,14 +1,12 @@
-using System;
+﻿using SkillsWorkflow.IntegrationTests.Core;
 using Xunit;
 
-namespace XUnitTestProject1
+namespace SkillsWorkflow.IntegrationTests
 {
-    public class UnitTest1
+    public class UserTypologyTests
     {
-        
-
         [Fact]
-        public void Test1()
+        public void ReadExistingUserTypologyTest()
         {
             var client = ClientFactory.CreateApiClient();
             client.LoginWithUser("John", "12345");
@@ -16,12 +14,6 @@ namespace XUnitTestProject1
                   .AssertThatExists()
                   .AssertFieldIsEqualTo("Name", "Account")
                   .AssertFieldIsEqualToCaseInsensitive("Id", "8C618DD3-84B1-4116-A6ED-0DF9998422BD");
-        }
-
-        [Fact]
-        public void FailingTest1()
-        {
-            Assert.True(false);
         }
     }
 }
